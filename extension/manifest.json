@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "CU Auto Login",
+  "version": "1.0",
+  "description": "Automated login for CU student portal",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://students.cuchd.in/*",
+    "http://localhost:5000/*",
+    "https://cuims-backend-cc993bb023a3.herokuapp.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["https://students.cuchd.in/*"],
+    "js": ["content.js"],
+    "run_at": "document_start"
+  }],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+C"
+      },
+      "description": "Start auto login process"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["html2canvas.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
