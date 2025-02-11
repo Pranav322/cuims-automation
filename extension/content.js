@@ -9,11 +9,15 @@ function debugLog(message, data = null) {
         console.log(logMessage);
     }
     
-    // Create visual debug overlay (optional)
+    // Comment out visual debug overlay
+    /*
     const debugDiv = document.getElementById('cu-extension-debug') || createDebugOverlay();
     debugDiv.innerHTML += `<div>${logMessage}</div>`;
+    */
 }
 
+// Comment out entire createDebugOverlay function since it's not needed
+/*
 function createDebugOverlay() {
     const div = document.createElement('div');
     div.id = 'cu-extension-debug';
@@ -35,6 +39,7 @@ function createDebugOverlay() {
     document.body.appendChild(div);
     return div;
 }
+*/
 
 async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -114,7 +119,7 @@ async function getCaptchaText() {
         debugLog('Sending processed captcha image to backend for processing...');
         debugLog('Processed Image Data:', processedImageData); // Log the image data
 
-        const response = await fetch('https://cuims-backend-cc993bb023a3.herokuapp.com/process_captcha', {
+        const response = await fetch('https://cuims-backend-a7801b8625f2.herokuapp.com/process_captcha', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -301,8 +306,10 @@ function logElementStates() {
     }
 }
 
-// Run debug helper periodically
+// Comment out the periodic debug logging
+/*
 setInterval(logElementStates, 2000);
+*/
 
 // Notify that content script is loaded
 console.log('Content script loaded successfully');

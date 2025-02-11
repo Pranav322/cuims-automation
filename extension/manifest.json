@@ -12,7 +12,8 @@
   "host_permissions": [
     "https://students.cuchd.in/*",
     "http://localhost:5000/*",
-    "https://cuims-backend-cc993bb023a3.herokuapp.com/*"
+    "https://cuims-backend-cc993bb023a3.herokuapp.com/*",
+    "https://cuims-backend-a7801b8625f2.herokuapp.com/*"
   ],
   "action": {
     "default_popup": "popup.html"
